@@ -1,0 +1,19 @@
+spring:
+    data:
+        mongodb:
+            host: localhost
+            port: 27017
+            database: test
+    application:
+        name: API-JUGADORES
+
+server:
+    port: 7800
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: ${EUREKA_URL:http://localhost:7000/eureka/}
+
+instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
