@@ -11,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Dell
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/jugadores")
 public class JugadorController {
@@ -67,7 +69,7 @@ public class JugadorController {
     public ResponseEntity<?> deleteById(@PathVariable("id") String id) {
         try {
             jugadorRepository.delete(jugadorRepository.findById(id).orElse(null));
-            return ResponseEntity.ok(id);
+            return ResponseEntity.ok(new Jugador(id));
         } catch (Exception e) {
             LOGGER.info("error deleteById");
             return ResponseEntity.badRequest().build();

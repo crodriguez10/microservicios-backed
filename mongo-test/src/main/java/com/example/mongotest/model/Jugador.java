@@ -21,7 +21,14 @@ public class Jugador {
     private String id;
     private String nombre;
     private String posicion;
-
+    
+    public Jugador() {
+    }
+     
+    public Jugador(String id) {
+        this.id = id;
+    }
+    
     public String getId() {
         return id;
     }
@@ -45,6 +52,7 @@ public class Jugador {
     public void setPosicion(String posicion) {
         this.posicion = posicion;
     }
-    
+
+   
     
 }
